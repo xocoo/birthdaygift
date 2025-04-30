@@ -9,7 +9,7 @@ export default function HomePage() {
   // You can customize these details
   const childName = "Enerlen"
   const age = "first"
-  const date = "June 10, 2025"
+  const date = "May 10, 2025"
   const time = "3:00 PM - 12:00 AM"
   const location = "954 Wilshire Ct, Vernon Hills, IL, 60061"
 
