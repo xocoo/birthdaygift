@@ -66,7 +66,9 @@ export default function HomePage() {
               <h2 className="text-2xl font-bold text-green-700">RSVP</h2>
             </div>
             <p className="text-green-800">Let us know if you can make it to {childName}&apos;s special day!</p>
-            <Button className="mt-4 bg-green-500 hover:bg-green-600">RSVP Now</Button>
+            <Link href="/invite">
+              <Button className="mt-4 bg-green-500 hover:bg-green-600">RSVP Now</Button>
+            </Link>
           </div>
         </div>
       </div>
