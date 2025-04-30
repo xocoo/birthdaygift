@@ -9,50 +9,53 @@ import { redirect } from "next/navigation"
 let gifts = [
   {
     id: "1",
-    name: "LEGO Building Set",
+    name: "Nintendo Switch 2",
     description: "A fun building set for creative play",
-    imageUrl: "/placeholder.svg?height=200&width=400&text=LEGO",
-    price: "$24.99",
+    imageUrl:
+      "https://gk7rbqg3puv9z4b0.public.blob.vercel-storage.com/Screenshot%20from%202025-04-30%2016-58-34-d2RBs4skUL2MHQYGEr7RCC27nzrpZh.png?height=200&width=400&text=Nintendo+Switch",
+    productUrl: "https://www.nintendo.com/us/gaming-systems/switch-2/",
     reserved: false,
   },
   {
     id: "2",
-    name: "Art Supplies Kit",
+    name: "Wooden Climbing Arch with Comfy Pad",
     description: "Complete kit with paints, markers, and more",
-    imageUrl: "/placeholder.svg?height=200&width=400&text=Art+Kit",
-    price: "$19.99",
+    imageUrl:
+      "https://gk7rbqg3puv9z4b0.public.blob.vercel-storage.com/Screenshot%20from%202025-04-30%2017-01-30-0libbtmPY5XdI88XYXYNSnV6wt0ihg.png?height=200&width=400&text=Art+Kit",
+    productUrl: "https://www.etsy.com/listing/1439478303/extra-large-size-wooden-climbing-arch?ls=a&ga_order=most_relevant&ga_search_type=all&ga_view_type=gallery&ga_search_query=toddler+wooden+games&ref=sc_gallery-1-6&pro=1&frs=1&sts=1&search_preloaded_img=1&plkey=8ce579bf9563b821068526558b5e8ad5e4350bd1%3A1439478303",
     reserved: false,
   },
   {
     id: "3",
-    name: "Plush Teddy Bear",
-    description: "Soft and cuddly teddy bear friend",
-    imageUrl: "/placeholder.svg?height=200&width=400&text=Teddy",
-    price: "$14.99",
+    name: "$100 Amazon Gift Card",
+    description: "Gift card for online shopping",
+    imageUrl:
+      "https://gk7rbqg3puv9z4b0.public.blob.vercel-storage.com/istockphoto-1404476556-612x612-0Pki99VLpPLsjBJiw3lpNnCAJdSk4R.jpg?height=200&width=400&text=Teddy",
+    productUrl: "https://www.amazon.com/Amazon-Gift-Card-packaging-Birthday/dp/B01FIS88SY/",
     reserved: false,
   },
   {
     id: "4",
-    name: "Children's Books Set",
+    name: "Gaming Monitor",
     description: "Collection of 5 popular storybooks",
-    imageUrl: "/placeholder.svg?height=200&width=400&text=Books",
-    price: "$29.99",
+    imageUrl: "https://gk7rbqg3puv9z4b0.public.blob.vercel-storage.com/poEEdm6vwRqjyQaHdzExQb-Nj6PKhLuJAa8UYk1ioezJEZnMOMqNB.png?height=200&width=400&text=Books",
+    productUrl: "https://www.dell.com/en-us/shop/dell-ultrasharp-40-curved-wuhd-monitor-u4021qw/apd/210-becu/monitors-monitor-accessories",
     reserved: false,
   },
   {
     id: "5",
     name: "Remote Control Car",
     description: "Fun RC car with easy controls",
-    imageUrl: "/placeholder.svg?height=200&width=400&text=RC+Car",
-    price: "$34.99",
+    imageUrl: "https://gk7rbqg3puv9z4b0.public.blob.vercel-storage.com/360_F_204392942_tWRRULqk9FkWkhAFoVVCBsvYVdSP66Pq-aSSnLhjGAp7ChfECWwhYs9AzfmK122.jpg?height=200&width=400&text=RC+Car",
+    productUrl: "https://www.amazon.com/gp/product/B0DDCT4L6Y/ref=ox_sc_saved_image_1?smid=A2PK9P4BMLQG06&psc=1",
     reserved: false,
   },
   {
     id: "6",
-    name: "Board Game",
-    description: "Family-friendly board game for ages 5+",
-    imageUrl: "/placeholder.svg?height=200&width=400&text=Board+Game",
-    price: "$21.99",
+    name: "Magnetic Drawing Board",
+    description: "Family-friendly board game",
+    imageUrl: "https://gk7rbqg3puv9z4b0.public.blob.vercel-storage.com/Magnetic-Drawing-Board-Toddler-Toys-2-3-4-Year-Old-Girls-Doodle-Board-Gift-2-3-4-Year-Old-Girl-Preschool-Learning-Educational-Girls-Toys-Age-2-3-4-Bi_5066b51d-e158-4d24-a5c5-452893274c96.ac9bde726cabae41040caf050384ae7b-5XU4nemazMa2HyTF4vh6cOnGQGW7cu.webp?height=200&width=400&text=Board+Game",
+    productUrl: "https://www.amazon.com/dp/B00000DMF5/",
     reserved: false,
   },
 ]
@@ -86,7 +89,7 @@ export async function reserveGift(giftId: string, name: string, email: string) {
 export async function addGift(formData: FormData) {
   const name = formData.get("name") as string
   const description = formData.get("description") as string
-  const price = formData.get("price") as string
+  const productUrl = formData.get("productUrl") as string
   const image = formData.get("image") as File
 
   // Upload image to Vercel Blob
@@ -106,7 +109,7 @@ export async function addGift(formData: FormData) {
     name,
     description,
     imageUrl,
-    price: `$${price}`,
+    productUrl,
     reserved: false,
   }
 

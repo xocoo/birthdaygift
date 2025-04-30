@@ -4,7 +4,7 @@ import type React from "react"
 
 import { useState } from "react"
 import Image from "next/image"
-import { Gift, Check } from "lucide-react"
+import { Gift, Check, ExternalLink } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import {
@@ -25,7 +25,7 @@ interface GiftProps {
     name: string
     description: string
     imageUrl: string
-    price: string
+    productUrl: string
     reserved: boolean
     reservedBy?: string
   }
@@ -64,6 +64,11 @@ export default function GiftCard({ gift }: GiftProps) {
             alt={gift.name}
             fill
             className="object-cover"
+            onError={(e) => {
+              // Fallback to placeholder if image fails to load
+              ;(e.target as HTMLImageElement).src =
+                "/placeholder.svg?height=200&width=400&text=" + encodeURIComponent(gift.name)
+            }}
           />
           {isReserved && (
             <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
@@ -76,7 +81,14 @@ export default function GiftCard({ gift }: GiftProps) {
         <CardContent className="p-4">
           <div className="flex justify-between items-start mb-2">
             <h3 className="text-lg font-bold">{gift.name}</h3>
-            <div className="text-sm font-medium text-gray-500">{gift.price}</div>
+            <a
+              href={gift.productUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-medium text-blue-500 hover:text-blue-700 flex items-center"
+            >
+              View <ExternalLink className="w-3 h-3 ml-1" />
+            </a>
           </div>
           <p className="text-gray-600 text-sm mb-4">{gift.description}</p>
 

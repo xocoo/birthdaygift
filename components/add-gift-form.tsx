@@ -3,7 +3,7 @@
 import type React from "react"
 
 import { useState } from "react"
-import { Gift, Upload, X } from "lucide-react"
+import { Gift, Upload, X, LinkIcon } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -51,20 +51,19 @@ export default function AddGiftForm() {
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="price">Price</Label>
+        <Label htmlFor="productUrl">Product Link</Label>
         <div className="relative">
-          <span className="absolute left-3 top-1/2 -translate-y-1/2">$</span>
+          <LinkIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" />
           <Input
-            id="price"
-            name="price"
-            type="number"
-            step="0.01"
-            min="0"
-            placeholder="19.99"
-            className="pl-8"
+            id="productUrl"
+            name="productUrl"
+            type="url"
+            placeholder="https://www.amazon.com/product-link"
+            className="pl-10"
             required
           />
         </div>
+        <p className="text-xs text-gray-500">Add a link to where the gift can be purchased (e.g., Amazon)</p>
       </div>
 
       <div className="space-y-2">
