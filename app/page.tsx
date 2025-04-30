@@ -35,7 +35,7 @@ export default function HomePage() {
             <div className="grid md:grid-cols-2 gap-8 mt-8">
               <div>
                 <img
-                  src="/placeholder.svg?height=300&width=400"
+                  src="https://gk7rbqg3puv9z4b0.public.blob.vercel-storage.com/Screenshot%20from%202025-04-30%2016-28-35-FP31kS42JbgvJZE3DDXvetIN7ukoHR.png?height=300&width=400"
                   alt="Birthday Party"
                   className="w-full h-64 object-cover rounded-2xl shadow-md"
                 />
