@@ -1,7 +1,7 @@
 import { Suspense } from "react"
 import Link from "next/link"
 import { ChevronLeft } from "lucide-react"
-import InvitationForm from "@/components/invitation-form"
+import RsvpForm from "@/components/rsvp-form"
 
 export default function InvitePage() {
   return (
@@ -14,12 +14,12 @@ export default function InvitePage() {
 
         <div className="bg-white rounded-3xl shadow-xl p-6 md:p-8">
           <div className="text-center mb-8">
-            <h1 className="text-3xl md:text-4xl font-bold text-green-600 mb-2">Send Invitations</h1>
-            <p className="text-gray-600">Invite friends and family to the birthday party!</p>
+            <h1 className="text-3xl md:text-4xl font-bold text-green-600 mb-2">RSVP</h1>
+            <p className="text-gray-600">Let us know if you can make it to the birthday party!</p>
           </div>
 
           <Suspense fallback={<div className="text-center py-12">Loading...</div>}>
-            <InvitationForm />
+            <RsvpForm />
           </Suspense>
         </div>
       </div>
