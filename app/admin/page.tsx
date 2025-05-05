@@ -1,8 +1,6 @@
-import { Suspense } from "react"
 import Link from "next/link"
 import { ChevronLeft, Gift, Users, Settings } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import AddGiftForm from "@/components/add-gift-form"
 
 export default function AdminPage() {
   return (
@@ -20,15 +18,19 @@ export default function AdminPage() {
                 <Gift className="w-6 h-6 text-blue-600" />
               </div>
               <div>
-                <h2 className="text-xl font-bold">Gift Management</h2>
-                <p className="text-gray-600">Add new gifts to the registry</p>
+                <h2 className="text-xl font-bold">Amazon Gift List</h2>
+                <p className="text-gray-600">View or manage your Amazon gift list</p>
               </div>
             </div>
-            <Link href="/gifts">
+            <a
+              href="https://www.amazon.com/registries/gl/guest-view/10RNSKXTUEKRV"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Button variant="outline" className="w-full">
-                View Gift Registry
+                Open Amazon Gift List
               </Button>
-            </Link>
+            </a>
           </div>
 
           <div className="bg-white rounded-3xl shadow-md p-6">
@@ -66,13 +68,16 @@ export default function AdminPage() {
 
         <div className="bg-white rounded-3xl shadow-xl p-6 md:p-8">
           <div className="text-center mb-8">
-            <h1 className="text-3xl md:text-4xl font-bold text-blue-600 mb-2">Add New Gift</h1>
-            <p className="text-gray-600">Add gifts to the registry for your child's birthday</p>
+            <h1 className="text-3xl md:text-4xl font-bold text-blue-600 mb-2">RSVP Management</h1>
+            <p className="text-gray-600">Manage RSVPs for your child's birthday party</p>
           </div>
 
-          <Suspense fallback={<div className="text-center py-12">Loading...</div>}>
-            <AddGiftForm />
-          </Suspense>
+          <div className="text-center py-8">
+            <p className="mb-4">Use the RSVP Management page to track and manage party guests.</p>
+            <Link href="/admin/rsvps">
+              <Button className="bg-blue-500 hover:bg-blue-600">Manage RSVPs</Button>
+            </Link>
+          </div>
         </div>
       </div>
     </main>
